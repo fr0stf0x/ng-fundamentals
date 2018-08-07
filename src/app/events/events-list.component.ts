@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from './event/event.service';
 import { ToastrService } from '../common/toastr.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -10,13 +11,14 @@ import { ToastrService } from '../common/toastr.service';
 })
 export class EventsListComponent implements OnInit {
 
-  events: any;
+  events: Subscription;
 
   constructor(private eventService: EventService,
     private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.events = this.eventService.getEvents();
+    this.eventService.getEvents().subscribe(
+      events => this.events = events);
   }
 
   handleThumbnailClick(eventName) {

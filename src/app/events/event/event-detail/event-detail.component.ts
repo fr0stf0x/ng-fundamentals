@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs';
 import { EventService } from './../event.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -9,13 +10,14 @@ import { ActivatedRoute } from '@angular/router';
 
 export class EventDetailComponent implements OnInit {
 
-    event: any;
+    event: Subscription;
 
     constructor(private eventService: EventService,
         private route: ActivatedRoute) { }
 
     ngOnInit() {
-        this.event = this.eventService.getEventById(
-            +this.route.snapshot.params.id);
+        this.eventService
+            .getEventById(+this.route.snapshot.params.id)
+            .subscribe(event => this.event = event);
     }
 }

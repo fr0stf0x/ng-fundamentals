@@ -7,16 +7,22 @@ export class EventService {
 
     constructor(private http: HttpClient) { }
 
-    getEvents(): any {
+    getEvents(): Subject<any> {
         const subject = new Subject();
         setTimeout(() => {
-            subject.next(EVENTS).complete();
+            subject.next(EVENTS);
+            subject.complete();
         }, 100);
         return subject;
     }
 
-    getEventById(id: number) {
-        return EVENTS.find((event) => event.id === id);
+    getEventById(id: number): Subject<any> {
+        const subject = new Subject();
+        setTimeout(() => {
+            subject.next(EVENTS.find((event) => event.id === id));
+            subject.complete();
+        }, 100);
+        return subject;
     }
 
 }
