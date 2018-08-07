@@ -1,3 +1,4 @@
+import { AuthService } from './user/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -37,6 +38,7 @@ import {
     BrowserModule,
   ],
   providers: [
+    AuthService,
     EventService,
     ToastrService,
     EventItemResolver,
