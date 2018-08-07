@@ -1,0 +1,10 @@
+<div class="radius-small">
+  <h1>Upcoming Angular events</h1>
+  <div class="row">
+    <div class=col-md-5 *ngFor="let event of events">
+      <event-thumbnail  [event]="event"></event-thumbnail>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
