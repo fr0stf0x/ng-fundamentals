@@ -1,9 +1,23 @@
-export class Event {
+export interface IEvent {
 
     id: number;
     name: string;
-    date: string;
+    date: Date;
     time: string;
+    price: number;
+    imageUrl: string;
+    location?: {
+        address: string;
+        city: string;
+        country: string;
+    };
+    onlineUrl?: string;
+    sessions: ISession[];
+}
 
-    constructor() { }
+export interface ISession {
+    id: number;
+    name: string;
+    presenter: string,
+    
 }

@@ -17,6 +17,7 @@ import {
   EventDetailComponent,
   EventCreateComponent,
   EventRouteActivator,
+  EventItemResolver,
 } from './events/index';
 
 
@@ -36,14 +37,15 @@ import {
     BrowserModule,
   ],
   providers: [
+    EventService,
+    ToastrService,
+    EventItemResolver,
     EventListResolver,
     EventRouteActivator,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState,
     },
-    ToastrService,
-    EventService,
   ],
   bootstrap: [EventsAppComponent]
 })

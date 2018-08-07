@@ -9,6 +9,7 @@ import {
     EventCreateComponent,
     EventDetailComponent,
     EventRouteActivator,
+    EventItemResolver,
 } from './events/index';
 
 const routes: Routes = [
@@ -24,8 +25,9 @@ const routes: Routes = [
     },
     {
         path: 'events/:id',
+        component: EventDetailComponent,
+        resolve: { event: EventItemResolver },
         canActivate: [EventRouteActivator],
-        component: EventDetailComponent
     },
     { path: '404', component: PageNotFoundComponent },
     {
