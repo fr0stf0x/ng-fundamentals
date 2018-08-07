@@ -18,6 +18,9 @@ export interface IEvent {
 export interface ISession {
     id: number;
     name: string;
-    presenter: string,
-    
+    presenter: string;
+    duration: number;
+    level: string;
+    abstract: string;
+    voters: string[];
 }

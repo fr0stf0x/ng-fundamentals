@@ -18,7 +18,7 @@ import {
   EventCreateComponent,
   EventRouteActivator,
   EventItemResolver,
-} from './events/index';
+} from './events';
 
 
 @NgModule({

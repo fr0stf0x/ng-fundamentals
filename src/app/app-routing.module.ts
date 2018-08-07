@@ -10,7 +10,7 @@ import {
     EventDetailComponent,
     EventRouteActivator,
     EventItemResolver,
-} from './events/index';
+} from './events';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/events' },

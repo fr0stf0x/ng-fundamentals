@@ -1,3 +1,4 @@
+import { IEvent } from '.';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -13,7 +14,7 @@ import { EventService } from './event/event.service';
 })
 export class EventsListComponent implements OnInit {
 
-  events: any[];
+  events: IEvent[];
 
   constructor(private eventService: EventService,
     private toastr: ToastrService,

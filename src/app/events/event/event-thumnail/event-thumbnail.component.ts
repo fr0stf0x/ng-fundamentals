@@ -1,5 +1,5 @@
-// import { Event } from './event.model';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { IEvent } from '..';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -9,7 +9,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class EventThumbnailComponent implements OnInit {
 
-  @Input() event: any;
+  @Input() event: IEvent;
 
   constructor() { }
 
