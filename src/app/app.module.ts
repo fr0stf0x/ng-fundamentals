@@ -1,19 +1,26 @@
 import { ActivatedRoute } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import { ToastrService } from './common/toastr.service';
 import { HttpClientModule } from '@angular/common/http';
-import { EventService } from './events/event/event.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { EventsAppComponent } from './events-app.component';
-import { EventsListComponent } from './events/events-list.component';
-import { EventThumbnailComponent } from './events/event/event-thumnail/event-thumbnail.component';
+import { ToastrService } from './common/toastr.service';
 import { NavBarComponent } from './nav/nav-bar.component';
-import { EventDetailComponent } from './events/event/event-detail/event-detail.component';
-import { EventCreateComponent } from './events/event/event-create/event-create.component';
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
-import { EventRouteActivator } from './events/event/event-detail/event-route-activator.service';
+
+import {
+  EventsListComponent,
+  EventListResolver
+} from './events/index';
+
+import {
+  EventService,
+  EventThumbnailComponent,
+  EventDetailComponent,
+  EventCreateComponent,
+  EventRouteActivator,
+} from './event/index';
 
 @NgModule({
   declarations: [
@@ -31,6 +38,7 @@ import { EventRouteActivator } from './events/event/event-detail/event-route-act
     BrowserModule,
   ],
   providers: [
+    EventListResolver,
     EventRouteActivator,
     {
       provide: 'canDeactivateCreateEvent',
@@ -43,7 +51,7 @@ import { EventRouteActivator } from './events/event/event-detail/event-route-act
 })
 export class AppModule { }
 
-function checkDirtyState(component: EventCreateComponent): boolean {
+function checkDirtyState(component): boolean {
   return component.isDirty
     ? window.confirm('You have not saved data,` continue?')
     : true;
