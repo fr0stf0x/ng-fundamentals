@@ -11,16 +11,14 @@ import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.co
 
 import {
   EventsListComponent,
-  EventListResolver
-} from './events/index';
-
-import {
+  EventListResolver,
   EventService,
   EventThumbnailComponent,
   EventDetailComponent,
   EventCreateComponent,
   EventRouteActivator,
-} from './event/index';
+} from './events/index';
+
 
 @NgModule({
   declarations: [

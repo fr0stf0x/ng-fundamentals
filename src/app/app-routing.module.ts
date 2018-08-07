@@ -1,4 +1,3 @@
-import { EventDetailComponent } from './events-list/event/event-detail/event-detail.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -7,13 +6,10 @@ import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.co
 import {
     EventsListComponent,
     EventListResolver,
-} from './events/index';
-
-import {
     EventCreateComponent,
     EventDetailComponent,
-    EventSe
-} from './event/index';
+    EventRouteActivator,
+} from './events/index';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/events' },
