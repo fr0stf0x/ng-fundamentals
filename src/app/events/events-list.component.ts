@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { ToastrService } from '../common/toastr.service';
+import { EventService } from './event/event.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
