@@ -1,4 +1,4 @@
-import { IEvent } from './index';
+import { IEvent } from './event.model';
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
@@ -10,6 +10,11 @@ export class EventService implements OnInit {
         event.id = 999;
         event.sessions = [];
         EVENTS.push(event);
+    }
+
+    updateEvent(event: IEvent) {
+        const index = EVENTS.findIndex(ev => ev.id === event.id);
+        EVENTS[index] = event;
     }
 
     constructor(private http: HttpClient) { }

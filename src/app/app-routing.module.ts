@@ -1,4 +1,4 @@
-import { SessionCreateComponent } from './events/event/session-create/session-create.component';
+import { SessionCreateComponent } from './events/event/event-detail/session-create.component';
 import { UserModule } from './user/user.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,7 +11,7 @@ import {
     EventCreateComponent,
     EventDetailComponent,
     EventRouteActivator,
-} from './events/index';
+} from './events';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/events' },

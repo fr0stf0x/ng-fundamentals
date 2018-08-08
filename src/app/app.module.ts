@@ -1,3 +1,4 @@
+import { SessionsListComponent } from './events/event/event-detail/sessions-list.component';
 import { AuthService } from './user/auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,9 +19,10 @@ import {
   EventDetailComponent,
   EventCreateComponent,
   EventRouteActivator,
-} from './events/index';
+} from './events';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CollapseWellComponent } from './common/collapse-well.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EventDetailComponent,
     EventCreateComponent,
     PageNotFoundComponent,
+    SessionsListComponent,
+    CollapseWellComponent
   ],
   imports: [
     FormsModule,

@@ -37,7 +37,7 @@ export class EventCreateComponent implements OnInit {
     this.route.navigateByUrl('/events');
   }
 
-  goBack() {
+  cancel() {
     this.route.navigateByUrl('/events');
   }
 
