@@ -1,3 +1,4 @@
+import { UserModule } from './user/user.module';
 import { AuthService } from './user/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,8 +20,7 @@ import {
   EventCreateComponent,
   EventRouteActivator,
   EventItemResolver,
-} from './events';
-
+} from './events/index';
 
 @NgModule({
   declarations: [

@@ -7,6 +7,13 @@ import { Router } from '@angular/router';
     // tslint:disable-next-line:component-selector
     selector: 'login-form',
     templateUrl: './login.component.html',
+    styles: [`
+        em {
+            float: right;
+            color: red;
+            font-size:13px
+        }
+    `],
 })
 
 export class LoginComponent implements OnInit {
