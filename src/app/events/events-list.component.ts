@@ -1,10 +1,9 @@
-import { IEvent } from '.';
+import { IEvent } from './shared/index';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 
 import { ToastrService } from '../common/toastr.service';
-import { EventService } from './event/event.service';
+import { EventService } from './shared/index';
 
 @Component({
   // tslint:disable-next-line:component-selector

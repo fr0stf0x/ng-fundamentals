@@ -1,4 +1,4 @@
-import { IEvent } from '..';
+import { IEvent } from '../../shared/index';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

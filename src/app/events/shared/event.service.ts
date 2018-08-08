@@ -1,10 +1,16 @@
-import { IEvent } from '.';
+import { IEvent } from './index';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
 
 @Injectable()
 export class EventService {
+
+    saveEvent(event) {
+        event.id = 999;
+        event.sessions = [];
+        EVENTS.push(event);
+    }
 
     constructor(private http: HttpClient) { }
 

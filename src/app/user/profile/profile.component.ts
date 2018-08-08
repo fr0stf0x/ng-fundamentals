@@ -7,33 +7,48 @@ import { ToastrService } from '../../common/toastr.service';
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'user-profile',
-    templateUrl: 'profile.component.html'
+    templateUrl: 'profile.component.html',
+    styleUrls: ['./profile.component.css'],
 })
 
 export class ProfileComponent implements OnInit {
 
     profileForm: FormGroup;
+    firstName: FormControl;
+    lastName: FormControl;
 
     constructor(private auth: AuthService,
         private router: Router,
         private toastr: ToastrService) { }
 
     ngOnInit() {
-        const firstName = new FormControl(this.auth.currentUser.firstName, Validators.required);
-        const lastName = new FormControl(this.auth.currentUser.lastName, Validators.required);
+        this.firstName = new FormControl(this.auth.currentUser.firstName,
+            [Validators.required, Validators.pattern('[a-zA-Z].*')]);
+        this.lastName = new FormControl(this.auth.currentUser.lastName,
+            [Validators.required, Validators.pattern('[a-zA-Z].*')]);
         this.profileForm = new FormGroup({
-            firstName: firstName,
-            lastName: lastName,
+            firstName: this.firstName,
+            lastName: this.lastName,
         });
     }
 
-    cancel() {
-        this.router.navigate(['/events']);
+    saveProfile(formValues) {
+        if (this.profileForm.valid) {
+            this.auth.updateCurrentUser(formValues.firstName, formValues.lastName);
+            this.toastr.success('Update info success fully');
+            this.router.navigate(['/events']);
+        }
     }
 
-    saveProfile(formValues) {
-        this.auth.updateCurrentUser(formValues.firstName, formValues.lastName);
-        this.toastr.success('Update info success fully');
+    validateFirstName() {
+        return this.firstName.valid || this.firstName.untouched;
+    }
+
+    validateLastName() {
+        return this.lastName.valid || this.lastName.untouched;
+    }
+
+    cancel() {
         this.router.navigate(['/events']);
     }
 }

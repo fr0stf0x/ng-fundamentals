@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     login(formValues) {
         this.auth.loginUser(
             formValues.userName, formValues.password);
-        this.toastr.success('Login successfully');
+        // this.toastr.success('Login successfully');
         this.router.navigate(['/events']);
     }
 

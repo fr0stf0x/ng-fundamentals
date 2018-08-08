@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserModule } from './user/user.module';
 
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
 
@@ -10,7 +11,7 @@ import {
     EventDetailComponent,
     EventRouteActivator,
     EventItemResolver,
-} from './events';
+} from './events/index';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/events' },

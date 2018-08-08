@@ -1,4 +1,4 @@
-import { EventService } from './event.service';
+import { EventService } from '../shared/event.service';
 import { Resolve, ActivatedRoute } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';

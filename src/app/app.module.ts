@@ -1,6 +1,4 @@
-import { UserModule } from './user/user.module';
 import { AuthService } from './user/auth.service';
-import { ActivatedRoute } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,7 +18,9 @@ import {
   EventCreateComponent,
   EventRouteActivator,
   EventItemResolver,
-} from './events';
+} from './events/index';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,6 +33,8 @@ import {
     PageNotFoundComponent,
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserModule,
