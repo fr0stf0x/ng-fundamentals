@@ -12,18 +12,19 @@ import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.co
 import {
   EventsListComponent,
   EventListResolver,
+  SessionCreateComponent,
   EventService,
   EventThumbnailComponent,
   EventDetailComponent,
   EventCreateComponent,
   EventRouteActivator,
-  EventItemResolver,
 } from './events/index';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
+    SessionCreateComponent,
     EventsAppComponent,
     NavBarComponent,
     EventsListComponent,
@@ -43,7 +44,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AuthService,
     EventService,
     ToastrService,
-    EventItemResolver,
     EventListResolver,
     EventRouteActivator,
     {

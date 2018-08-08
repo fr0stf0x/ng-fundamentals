@@ -1,10 +1,10 @@
 import { IEvent } from './index';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
 
 @Injectable()
-export class EventService {
+export class EventService implements OnInit {
 
     saveEvent(event) {
         event.id = 999;
@@ -13,6 +13,10 @@ export class EventService {
     }
 
     constructor(private http: HttpClient) { }
+
+    ngOnInit() {
+        console.log(this.getEventById(1));
+    }
 
     getEvents(): Observable<IEvent[]> {
         const subject = new Subject<IEvent[]>();
@@ -23,13 +27,8 @@ export class EventService {
         return subject;
     }
 
-    getEventById(id: number): Observable<IEvent> {
-        const subject = new Subject<IEvent>();
-        setTimeout(() => {
-            subject.next(EVENTS.find((event) => event.id === id));
-            subject.complete();
-        }, 100);
-        return subject;
+    getEventById(id): IEvent {
+        return EVENTS.find((event) => event.id === id);
     }
 
 }

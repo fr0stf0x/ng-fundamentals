@@ -10,9 +10,9 @@ export class EventItemResolver implements Resolve<any> {
         private route: ActivatedRoute) { }
 
     resolve() {
-        return this.eventService.getEventById(
-            this.route.snapshot.params.id
-        ).pipe(map(event => event));
+        // return this.eventService.getEventById(
+        //     this.route.snapshot.params.id
+        // ).pipe(map(event => event));
     }
 
 }
