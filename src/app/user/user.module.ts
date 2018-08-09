@@ -9,7 +9,7 @@ import { UserRoutingModule } from './user-routing.module';
 @NgModule({
     imports: [
         CommonModule,
-        UserRoutingModule,
+        UserRoutingModule, // -> user route
         FormsModule,
         ReactiveFormsModule,
     ],

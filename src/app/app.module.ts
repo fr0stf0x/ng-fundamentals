@@ -1,14 +1,19 @@
-import { SessionsListComponent } from './events/event/event-detail/sessions-list.component';
 import { AuthService } from './user/auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { EventsAppComponent } from './events-app.component';
-import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 import { NavBarComponent } from './nav/nav-bar.component';
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
+
+import {
+  JQ_TOKEN,
+  TOASTR_TOKEN, Toastr,
+  CollapseWellComponent
+} from './common/'; // -> index.ts
 
 import {
   EventsListComponent,
@@ -20,12 +25,11 @@ import {
   EventCreateComponent,
   EventRouteActivator,
   DurationPipe,
+  SessionsListComponent,
 } from './events';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CollapseWellComponent } from './common/collapse-well.component';
-
 const toastr: Toastr = window['toastr'];
+const jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -53,6 +57,9 @@ const toastr: Toastr = window['toastr'];
     EventService,
     {
       provide: TOASTR_TOKEN, useValue: toastr
+    },
+    {
+      provide: JQ_TOKEN, useValue: jQuery,
     },
     EventListResolver,
     EventRouteActivator,

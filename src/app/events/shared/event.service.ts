@@ -1,5 +1,5 @@
-import { IEvent } from './event.model';
-import { Injectable, OnInit } from '@angular/core';
+import { IEvent, ISession } from './event.model';
+import { Injectable, OnInit, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
 
@@ -36,8 +36,26 @@ export class EventService implements OnInit {
         return EVENTS.find((event) => event.id === id);
     }
 
-    searchSession(searchTerm: string): Observable<ISession[]> {
-        const 
+    searchSessions(searchTerm: string): Observable<ISession[]> {
+        const term = searchTerm.toLocaleLowerCase();
+        let results: ISession[] = [];
+        EVENTS.forEach(event => {
+            // Check if searchTerm is in event.sessions.name
+            let matchingSessions = event.sessions.filter(session =>
+                session.name.toLocaleLowerCase().indexOf(term) > -1);
+            // Set eventId property of each matching session equals to this event id
+            matchingSessions = matchingSessions.map((session: any) => {
+                session.eventId = event.id;
+                return session;
+            });
+            results = results.concat(matchingSessions);
+        });
+        // Emit the result to simulate HTTP GET Request
+        const emmiter = new EventEmitter<ISession[]>(true);
+        setTimeout(() => {
+            emmiter.emit(results);
+        }, 100);
+        return emmiter;
     }
 
 }

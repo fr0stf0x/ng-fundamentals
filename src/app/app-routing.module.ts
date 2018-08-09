@@ -1,4 +1,3 @@
-import { SessionCreateComponent } from './events/event/event-detail/session-create.component';
 import { UserModule } from './user/user.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -6,10 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
 
 import {
+    // Components
     EventsListComponent,
-    EventListResolver,
     EventCreateComponent,
     EventDetailComponent,
+    SessionCreateComponent,
+    // Resolvers and Activators
+    EventListResolver,
     EventRouteActivator,
 } from './events';
 
@@ -34,7 +36,7 @@ const routes: Routes = [
     { path: '404', component: PageNotFoundComponent },
     {
         path: 'user',
-        loadChildren: () => UserModule,
+        loadChildren: () => UserModule, // Load user module
     }
 ];
 

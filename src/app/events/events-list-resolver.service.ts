@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Resolve } from '@angular/router';
+
 import { EventService } from './shared';
 
 @Injectable()

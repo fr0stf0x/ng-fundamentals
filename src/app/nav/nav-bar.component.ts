@@ -1,5 +1,4 @@
-import { ISession } from './../events/shared/event.model';
-import { EventService } from './../events/shared/event.service';
+import { ISession, EventService } from '../events/';
 import { AuthService } from '../user/auth.service';
 import { Component } from '@angular/core';
 
@@ -19,7 +18,8 @@ export class NavBarComponent {
     searchSessions(searchTerm) {
         this.eventService.searchSessions(searchTerm)
             .subscribe(sessions => {
-                this.foundSessions = sessions.slice(0);
+                this.foundSessions = sessions;
+                console.log(this.foundSessions);
             });
     }
 }
