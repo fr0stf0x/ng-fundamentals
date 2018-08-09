@@ -1,4 +1,10 @@
 <div class="row" *ngFor="let session of visibleSessions">
+
+    <div class="col-md-1">
+        <upvote (vote)="toggleVote(session)" [voted]="userHasVoted(session)" [count]="session.voters.length">
+        </upvote>
+    </div>
+
     <div class="col-md-10">
         <collapse-well>
             <div well-title>

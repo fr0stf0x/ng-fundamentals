@@ -3,6 +3,7 @@ import { IEvent, ISession } from '../../shared';
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
     templateUrl: './event-detail.component.html',
@@ -19,17 +20,28 @@ import { ActivatedRoute } from '@angular/router';
 
 export class EventDetailComponent implements OnInit {
 
-    addMode = false;
+    addMode: boolean;
 
     event: IEvent;
-    sortBy = 'votes';
-    filterBy = 'all';
+    sortBy: string;
+    filterBy: string;
 
     constructor(private eventService: EventService,
-        private route: ActivatedRoute) { }
+        private route: ActivatedRoute) {
+        this.initStates();
+    }
+
+    private initStates() {
+        this.addMode = false;
+        this.sortBy = 'votes';
+        this.filterBy = 'all';
+    }
 
     ngOnInit() {
-        this.event = this.eventService.getEventById(+this.route.snapshot.params.id);
+        this.route.params.forEach(param => {
+            this.event = this.eventService.getEventById(+param.id);
+            this.initStates();
+        });
     }
 
     saveNewSession(session: ISession) {

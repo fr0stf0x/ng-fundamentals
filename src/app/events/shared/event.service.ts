@@ -6,6 +6,12 @@ import { Subject, Observable } from 'rxjs';
 @Injectable()
 export class EventService implements OnInit {
 
+    constructor(private http: HttpClient) { }
+
+    ngOnInit() {
+        console.log(this.getEventById(1));
+    }
+
     saveEvent(event) {
         event.id = 999;
         event.sessions = [];
@@ -17,11 +23,6 @@ export class EventService implements OnInit {
         EVENTS[index] = event;
     }
 
-    constructor(private http: HttpClient) { }
-
-    ngOnInit() {
-        console.log(this.getEventById(1));
-    }
 
     getEvents(): Observable<IEvent[]> {
         const subject = new Subject<IEvent[]>();

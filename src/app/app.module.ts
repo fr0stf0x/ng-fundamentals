@@ -12,7 +12,9 @@ import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.co
 import {
   JQ_TOKEN,
   TOASTR_TOKEN, Toastr,
-  CollapseWellComponent
+  CollapseWellComponent,
+  SimpleModalComponent,
+  ModalTriggerDirective,
 } from './common/'; // -> index.ts
 
 import {
@@ -26,6 +28,8 @@ import {
   EventRouteActivator,
   DurationPipe,
   SessionsListComponent,
+  UpvoteComponent,
+  VoterService,
 } from './events';
 
 const toastr: Toastr = window['toastr'];
@@ -43,7 +47,10 @@ const jQuery = window['$'];
     EventCreateComponent,
     PageNotFoundComponent,
     SessionsListComponent,
-    CollapseWellComponent
+    CollapseWellComponent,
+    SimpleModalComponent,
+    ModalTriggerDirective,
+    UpvoteComponent,
   ],
   imports: [
     FormsModule,
@@ -53,6 +60,7 @@ const jQuery = window['$'];
     BrowserModule,
   ],
   providers: [
+    VoterService,
     AuthService,
     EventService,
     {
