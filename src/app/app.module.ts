@@ -30,6 +30,7 @@ import {
   SessionsListComponent,
   UpvoteComponent,
   VoterService,
+  LocationValidator,
 } from './events';
 
 const toastr: Toastr = window['toastr'];
@@ -51,6 +52,7 @@ const jQuery = window['$'];
     SimpleModalComponent,
     ModalTriggerDirective,
     UpvoteComponent,
+    LocationValidator,
   ],
   imports: [
     FormsModule,

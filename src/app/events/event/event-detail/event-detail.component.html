@@ -27,18 +27,18 @@
 
     <hr>
 
-    <div class="row">
-        <div class="col-md-1">
-            <h3 style="margin: 0">Sessions</h3>
+    <div *ngIf="!addMode" class="row">
+        <div class="col-md-2">
+            <h3 style="margin: 0; float: left;">Sessions</h3>
         </div>
 
         <!-- sort and filter -->
         <div class="col-md-7">
-            <div class="btn-group" style="margin: 0 10px">
+            <div class="btn-group" style="float:left; margin: 0 10px">
                 <button (click)="sortBy='name'" [class.active]="sortBy==='name'" class="btn btn-default">By Name</button>
                 <button (click)="sortBy='votes'" class="btn btn-default" [class.active]="sortBy==='votes'">By Votes</button>
             </div>
-            <div class="btn-group" style="margin: 0 10px">
+            <div class="btn-group" style="float:left">
                 <button (click)="filterBy='all'" [class.active]="filterBy==='all'" class="btn btn-default">All</button>
                 <button (click)="filterBy='beginner'" [class.active]="filterBy==='beginner'" class="btn btn-default">Beginner</button>
                 <button (click)="filterBy='intermediate'" [class.active]="filterBy==='intermediate'" class="btn btn-default">Intermmediate</button>
@@ -47,15 +47,19 @@
         </div>
 
         <div class="col-md-2">
-            <a class="btn btn-default" style="margin-bottom: 10px" (click)="addMode=true">Create session</a>
+            <a class="btn btn-default" style="float: right;" (click)="addMode=true">Create session</a>
         </div>
+    </div>
 
-        <create-session (cancelAdding)="cancelAddSession()" (createNewSession)="saveNewSession($event)" *ngIf="addMode"></create-session>
-
+    <div class="row">
+        <div class="col-md-12" style="margin: 0 0 15px 0">
+            <create-session (cancelAdding)="cancelAddSession()" (createNewSession)="saveNewSession($event)" *ngIf="addMode"></create-session>
+        </div>
     </div>
 
 
     <sessions-list [sortBy]="sortBy" [filterBy]="filterBy" *ngIf="!addMode" [sessions]="event?.sessions"></sessions-list>
 </div>
+
 
 <router-outlet></router-outlet>

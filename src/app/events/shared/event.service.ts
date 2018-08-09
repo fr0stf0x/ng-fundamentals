@@ -25,12 +25,7 @@ export class EventService implements OnInit {
 
 
     getEvents(): Observable<IEvent[]> {
-        const subject = new Subject<IEvent[]>();
-        setTimeout(() => {
-            subject.next(EVENTS);
-            subject.complete();
-        }, 100);
-        return subject;
+        return this.http.get<IEvent[]>('/api/events');
     }
 
     getEventById(id): IEvent {

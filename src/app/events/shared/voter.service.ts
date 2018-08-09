@@ -8,15 +8,15 @@ export class VoterService {
     constructor(private eventService: EventService) { }
 
     addVoter(session: ISession, userName: string) {
-
+        session.voters.push(userName);
     }
 
     deleleVoter(session: ISession, userName: string) {
-
+        session.voters = session.voters.filter(voter => voter !== userName);
     }
 
     userHasVoted(session: ISession, userName: string): boolean {
-
-        return false;
+        return session.voters.includes(userName);
     }
+
 }

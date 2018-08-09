@@ -1,5 +1,4 @@
 import { VoterService } from './../../shared/voter.service';
-import { EventService } from './../../shared/event.service';
 import { AuthService } from './../../../user/auth.service';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { ISession, } from '../../shared';
@@ -19,7 +18,6 @@ export class SessionsListComponent implements OnInit, OnChanges {
     visibleSessions: ISession[] = [];
 
     constructor(private auth: AuthService,
-        private eventService: EventService,
         private voterService: VoterService) { }
 
     ngOnInit() { }
