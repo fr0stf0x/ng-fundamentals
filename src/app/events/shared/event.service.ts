@@ -36,6 +36,10 @@ export class EventService implements OnInit {
         return EVENTS.find((event) => event.id === id);
     }
 
+    searchSession(searchTerm: string): Observable<ISession[]> {
+        const 
+    }
+
 }
 
 const EVENTS: IEvent[] = [

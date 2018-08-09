@@ -1,5 +1,6 @@
-import { IEvent, ISession } from '../../shared/event.model';
-import { EventService } from '../../shared/event.service';
+import { EventService } from './../../shared/event.service';
+import { IEvent, ISession } from '../../shared';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -21,6 +22,8 @@ export class EventDetailComponent implements OnInit {
     addMode = false;
 
     event: IEvent;
+    sortBy = 'votes';
+    filterBy = 'all';
 
     constructor(private eventService: EventService,
         private route: ActivatedRoute) { }

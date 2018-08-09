@@ -16,6 +16,5 @@ export class CollapseWellComponent implements OnInit {
 
     toggleCollapse() {
         this.visible = !this.visible;
-        console.log(this.visible);
     }
 }

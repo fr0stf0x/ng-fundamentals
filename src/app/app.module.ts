@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { EventsAppComponent } from './events-app.component';
-import { ToastrService } from './common/toastr.service';
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 import { NavBarComponent } from './nav/nav-bar.component';
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
 
@@ -19,13 +19,17 @@ import {
   EventDetailComponent,
   EventCreateComponent,
   EventRouteActivator,
+  DurationPipe,
 } from './events';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CollapseWellComponent } from './common/collapse-well.component';
 
+const toastr: Toastr = window['toastr'];
+
 @NgModule({
   declarations: [
+    DurationPipe,
     SessionCreateComponent,
     EventsAppComponent,
     NavBarComponent,
@@ -47,7 +51,9 @@ import { CollapseWellComponent } from './common/collapse-well.component';
   providers: [
     AuthService,
     EventService,
-    ToastrService,
+    {
+      provide: TOASTR_TOKEN, useValue: toastr
+    },
     EventListResolver,
     EventRouteActivator,
     {

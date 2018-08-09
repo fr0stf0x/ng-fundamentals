@@ -1,7 +1,7 @@
 import { AuthService } from '../auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastrService } from '../../common/toastr.service';
+import { Toastr, TOASTR_TOKEN } from '../../common/toastr.service';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
     constructor(private auth: AuthService,
         private router: Router,
-        private toastr: ToastrService) { }
+        @Inject(TOASTR_TOKEN) private toastr: Toastr) { }
 
     ngOnInit() { }
 
