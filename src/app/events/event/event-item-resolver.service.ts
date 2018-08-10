@@ -1,19 +1,14 @@
 import { EventService } from '../shared/event.service';
-import { Resolve, ActivatedRoute } from '@angular/router';
+import { Resolve, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
-
-import { map } from 'rxjs/operators';
 
 @Injectable()
 export class EventItemResolver implements Resolve<any> {
 
-    constructor(private eventService: EventService,
-        private route: ActivatedRoute) { }
+    constructor(private eventService: EventService) { }
 
-    resolve() {
-        // return this.eventService.getEventById(
-        //     this.route.snapshot.params.id
-        // ).pipe(map(event => event));
+    resolve(route: ActivatedRouteSnapshot) {
+        return this.eventService.getEventById(+route.params['id']);
     }
 
 }

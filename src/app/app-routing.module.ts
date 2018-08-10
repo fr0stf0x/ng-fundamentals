@@ -12,7 +12,7 @@ import {
     SessionCreateComponent,
     // Resolvers and Activators
     EventListResolver,
-    EventRouteActivator,
+    EventItemResolver,
 } from './events';
 
 const routes: Routes = [
@@ -30,7 +30,7 @@ const routes: Routes = [
     {
         path: 'events/:id',
         component: EventDetailComponent,
-        canActivate: [EventRouteActivator],
+        resolve: { event: EventItemResolver },
     },
     { path: 'events/sessions/new', component: SessionCreateComponent },
     { path: '404', component: PageNotFoundComponent },

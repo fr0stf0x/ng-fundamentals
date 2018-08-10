@@ -25,7 +25,7 @@ import {
   EventThumbnailComponent,
   EventDetailComponent,
   EventCreateComponent,
-  EventRouteActivator,
+  EventItemResolver,
   DurationPipe,
   SessionsListComponent,
   UpvoteComponent,
@@ -72,7 +72,7 @@ const jQuery = window['$'];
       provide: JQ_TOKEN, useValue: jQuery,
     },
     EventListResolver,
-    EventRouteActivator,
+    EventItemResolver,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState,
