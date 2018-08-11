@@ -35,6 +35,8 @@ export class SessionCreateComponent implements OnInit {
     level: FormControl;
     abstract: FormControl;
 
+    mouseOver = false;
+
     constructor() { }
 
     ngOnInit() {

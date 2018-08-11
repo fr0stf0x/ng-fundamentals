@@ -1,6 +1,5 @@
 import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { EventService } from './event.service';
 import { Injectable } from '@angular/core';
 import { ISession } from './event.model';
 import { of } from 'rxjs';
@@ -8,7 +7,7 @@ import { of } from 'rxjs';
 @Injectable()
 export class VoterService {
 
-    constructor(private http: HttpClient, private eventService: EventService) { }
+    constructor(private http: HttpClient) { }
 
     addVoter(eventId: number, session: ISession, userName: string) {
         session.voters.push(userName);

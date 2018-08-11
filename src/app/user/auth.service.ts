@@ -36,8 +36,39 @@ export class AuthService {
         return !!this.currentUser;
     }
 
+    logout() {
+        this.currentUser = undefined;
+
+        const options = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        };
+        return this.http.post('/api/logout', {}, options);
+    }
+
+    checkAuthStatus() {
+        this.http
+            .get('/api/currentIdentity')
+            .pipe(tap(data => {
+                if (data instanceof Object) {
+                    console.log('Authenticated, setting current user info');
+                    this.currentUser = <IUser>data;
+                } else {
+                    console.log('You are not authenticated');
+                }
+            }))
+            .subscribe();
+    }
+
     updateCurrentUser(firstName: string, lastName: string) {
         this.currentUser.firstName = firstName;
         this.currentUser.lastName = lastName;
+        const options = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        };
+        return this.http.put(`/api/users/${this.currentUser.id}`, this.currentUser, options);
     }
 }

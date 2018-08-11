@@ -1,6 +1,5 @@
-import { UserModule } from './user/user.module';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
 
@@ -36,12 +35,12 @@ const routes: Routes = [
     { path: '404', component: PageNotFoundComponent },
     {
         path: 'user',
-        loadChildren: () => UserModule, // Load user module
+        loadChildren: './user/user.module#UserModule', // Load user module
     }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
     exports: [RouterModule],
 })
 export class AppRoutingModule { }

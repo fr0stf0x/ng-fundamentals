@@ -82,7 +82,7 @@ const jQuery = window['$'];
 })
 export class AppModule { }
 
-function checkDirtyState(component): boolean {
+export function checkDirtyState(component): boolean {
   return component.isDirty
     ? window.confirm('You have not saved data,` continue?')
     : true;
