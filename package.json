@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node node_modules/ngf-server/server.js",
+    "start": "node server/server.js",
     "build": "ng build --prod",
     "test": "ng test --source-map false",
     "lint": "ng lint",
@@ -21,9 +21,13 @@
     "@angular/platform-browser": "6.0.3",
     "@angular/platform-browser-dynamic": "6.0.3",
     "@angular/router": "6.0.3",
+    "cookie-parser": "^1.4.3",
     "core-js": "2.5.4",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.0",
     "ngf-bootstrap": "0.0.5",
-    "ngf-server": "^1.0.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "rxjs": "6.0.0",
     "toastr": "^2.1.4",
     "zone.js": "0.8.26"
